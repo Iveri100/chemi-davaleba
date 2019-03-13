@@ -1,0 +1,43 @@
+def string_solver(multi_dimensional_array):
+  settled_array = []
+  strings_array = []
+  final_array = []
+  
+  check_range = ['0','1','2','3','4','5','6','7','8','9']
+
+  delimeter = ''
+
+  for item in multi_dimensional_array:
+    if type(item) is int:
+      settled_array.append(item)
+    elif type(item) is list:
+      strings_array.append(str(item))
+  for item in strings_array:
+    for subitem in item:
+      if subitem in check_range:
+        settled_array.append(subitem) 
+
+  k = delimeter.join([settled_array[4],settled_array[5]])
+  q = delimeter.join([settled_array[7],settled_array[8]])
+
+  final_array.extend(settled_array[0:4])
+  final_array.extend([k,settled_array[6],q])
+
+  settled_array.clear()
+
+  for it in final_array:
+    it = int(it)
+    settled_array.append(it)
+  print(settled_array) 
+
+  
+
+
+
+
+def main():
+  multi_dimensional_array = [1,[9,[[[[[2]]]]]],[[[2]],12,[2]],[10]]
+  string_solver(multi_dimensional_array)
+
+
+main()
